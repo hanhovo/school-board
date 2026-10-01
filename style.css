@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f5f6f8;
+  color: #222;
+}
+
+/* ヘッダー */
+
+header {
+  background: #20242a;
+  color: white;
+  padding: 24px 20px;
+}
+
+header h1 {
+  font-size: 26px;
+}
+
+header p {
+  margin-top: 5px;
+  color: #bfc3c8;
+}
+
+/* メイン */
+
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* ウェルカム */
+
+.welcome {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+.welcome h2 {
+  margin-bottom: 8px;
+}
+
+.welcome p {
+  color: #666;
+  margin-bottom: 18px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* 投稿ボタン */
+
+.welcome button {
+  background: #20242a;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+}
+
+/* カテゴリ */
+
+.categories {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.categories button {
+  background: white;
+  padding: 9px 13px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+}
+
+/* 投稿 */
+
+.posts h2 {
+  margin-bottom: 12px;
+}
+
+.post {
+  background: white;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 12px;
+  border: 1px solid #eee;
+}
+
+.category {
+  font-size: 12px;
+  color: #666;
+  background: #f0f1f3;
+  padding: 5px 9px;
+  border-radius: 10px;
+}
+
+.post h3 {
+  margin: 12px 0 7px;
+}
+
+.post p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.post-info {
+  margin-top: 14px;
+  font-size: 12px;
+  color: #999;
+}
+
+/* フッター */
+
+footer {
+  text-align: center;
+  color: #999;
+  padding: 30px;
+  font-size: 13px;
+}
+
+/* スマホ */
+
+@media (max-width: 600px) {
+
+  main {
+    padding: 15px;
+  }
+
+  header {
+    padding: 20px 15px;
+  }
+
+  .welcome {
+    padding: 20px;
+  }
+
+}
