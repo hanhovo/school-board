@@ -13,211 +13,499 @@
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f5f6f8;
+      background: #f1f1f1;
       color: #222;
+      font-family:
+        "MS PGothic",
+        "ＭＳ Ｐゴシック",
+        Arial,
+        sans-serif;
+      font-size: 14px;
     }
 
+    /* 全体 */
+
+    .container {
+      max-width: 950px;
+      margin: 20px auto;
+      background: white;
+      border: 1px solid #aaa;
+    }
+
+    /* ヘッダー */
+
     header {
-      background: #20242a;
+      background: #183b63;
       color: white;
-      padding: 24px 20px;
+      padding: 10px 14px;
+      border-bottom: 3px solid #0d2845;
     }
 
     header h1 {
       margin: 0;
-      font-size: 26px;
+      font-size: 22px;
+      font-weight: normal;
+      letter-spacing: 1px;
     }
 
     header p {
-      margin: 5px 0 0;
-      color: #c5c8cc;
+      margin: 3px 0 0;
+      color: #d8e4f0;
+      font-size: 12px;
     }
 
-    main {
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
+    /* ナビ */
+
+    .nav {
+      background: #e8e8e8;
+      border-bottom: 1px solid #aaa;
+      padding: 7px 10px;
     }
 
-    .welcome,
-    .post-form,
-    .post {
-      background: white;
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 18px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
-    }
-
-    .welcome h2 {
-      margin-top: 0;
-    }
-
-    .welcome button,
-    .post-form button {
-      background: #20242a;
-      color: white;
+    .nav button {
+      background: none;
       border: none;
-      padding: 12px 18px;
-      border-radius: 10px;
+      padding: 3px 8px;
+      color: #0645ad;
+      text-decoration: underline;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .nav button:hover {
+      color: red;
+    }
+
+    /* 本体 */
+
+    .content {
+      padding: 15px;
+    }
+
+    .board-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      border-bottom: 2px solid #183b63;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+    }
+
+    /* スレッド一覧 */
+
+    .thread-list {
+      border-top: 1px solid #ccc;
+    }
+
+    .thread-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 5px;
+      border-bottom: 1px solid #ddd;
       cursor: pointer;
     }
 
-    .post-form {
+    .thread-row:hover {
+      background: #f7faff;
+    }
+
+    .thread-number {
+      width: 30px;
+      color: #777;
+      text-align: right;
+    }
+
+    .thread-title {
+      flex: 1;
+      color: #0645ad;
+      text-decoration: underline;
+    }
+
+    .thread-title:hover {
+      color: red;
+    }
+
+    .thread-meta {
+      width: 150px;
+      color: #888;
+      font-size: 12px;
+      text-align: right;
+    }
+
+    .thread-category {
+      width: 75px;
+      color: #666;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    /* ボタン */
+
+    .main-button {
+      margin-top: 15px;
+      padding: 8px 14px;
+      border: 1px solid #888;
+      background: #eee;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .main-button:hover {
+      background: #ddd;
+    }
+
+    /* フォーム */
+
+    .form-box {
       display: none;
+      margin-top: 15px;
+      padding: 15px;
+      border: 1px solid #aaa;
+      background: #f7f7f7;
     }
 
-    .post-form input,
-    .post-form textarea,
-    .post-form select {
+    .form-box h2 {
+      margin-top: 0;
+      font-size: 16px;
+    }
+
+    .form-box label {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-weight: bold;
+    }
+
+    .form-box input,
+    .form-box textarea,
+    .form-box select {
       width: 100%;
-      padding: 12px;
-      margin: 8px 0 15px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 15px;
+      padding: 7px;
+      border: 1px solid #aaa;
+      background: white;
+      font-size: 14px;
     }
 
-    .post-form textarea {
+    .form-box textarea {
       height: 120px;
       resize: vertical;
     }
 
-    .categories {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 25px;
+    /* スレッド表示 */
+
+    #threadView {
+      display: none;
     }
 
-    .categories button {
-      border: 1px solid #ddd;
-      background: white;
-      padding: 9px 13px;
-      border-radius: 20px;
-      cursor: pointer;
+    .thread-header {
+      background: #eee;
+      border: 1px solid #aaa;
+      padding: 10px;
+      margin-bottom: 10px;
     }
 
-    .category {
-      display: inline-block;
+    .thread-header h2 {
+      margin: 0 0 5px;
+      font-size: 18px;
+    }
+
+    .thread-header p {
+      margin: 0;
+      color: #777;
       font-size: 12px;
-      color: #666;
-      background: #f0f1f3;
-      padding: 5px 9px;
-      border-radius: 10px;
     }
 
-    .post h3 {
-      margin: 12px 0 7px;
+    /* レス */
+
+    .reply {
+      border-bottom: 1px solid #ccc;
+      padding: 12px 5px;
     }
 
-    .post p {
+    .reply-head {
       color: #555;
-      line-height: 1.5;
-      white-space: pre-wrap;
-    }
-
-    .post-info {
-      margin-top: 14px;
       font-size: 12px;
-      color: #999;
+      margin-bottom: 6px;
     }
 
-    .empty {
+    .reply-number {
+      color: #0645ad;
+      font-weight: bold;
+    }
+
+    .reply-name {
+      color: green;
+      font-weight: bold;
+    }
+
+    .reply-date {
       color: #888;
+    }
+
+    .reply-body {
+      white-space: pre-wrap;
+      line-height: 1.6;
+      word-break: break-word;
+    }
+
+    /* 返信フォーム */
+
+    .reply-form {
+      margin-top: 15px;
+      padding: 15px;
+      border: 1px solid #aaa;
+      background: #f7f7f7;
+    }
+
+    .reply-form textarea {
+      width: 100%;
+      height: 100px;
+      padding: 7px;
+      resize: vertical;
+      border: 1px solid #aaa;
+      font-size: 14px;
+    }
+
+    /* 戻る */
+
+    .back-button {
+      margin-bottom: 10px;
+      color: #0645ad;
+      background: none;
+      border: none;
+      text-decoration: underline;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    /* メッセージ */
+
+    .message {
       text-align: center;
+      color: #888;
       padding: 30px;
+    }
+
+    /* スマホ */
+
+    @media (max-width: 700px) {
+
+      .container {
+        margin: 0;
+        border-left: none;
+        border-right: none;
+      }
+
+      .thread-meta {
+        display: none;
+      }
+
+      .thread-category {
+        width: 60px;
+      }
+
+      .content {
+        padding: 10px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>School Board</h1>
-  <p>みんなの学校掲示板</p>
-</header>
+<div class="container">
 
-<main>
+  <header>
+    <h1>SCHOOL BOARD</h1>
+    <p>学校のみんなの掲示板</p>
+  </header>
 
-  <section class="welcome">
-    <h2>今日の掲示板</h2>
-    <p>学校のみんなで情報を共有しよう。</p>
+  <!-- ナビ -->
 
-    <button id="openPost">＋ 投稿する</button>
-  </section>
+  <div class="nav">
 
+    <button onclick="filterThreads('すべて')">
+      全て
+    </button>
 
-  <!-- 投稿フォーム -->
+    <button onclick="filterThreads('学校生活')">
+      学校生活
+    </button>
 
-  <section class="post-form" id="postForm">
+    <button onclick="filterThreads('部活')">
+      部活
+    </button>
 
-    <h2>新しい投稿</h2>
+    <button onclick="filterThreads('勉強')">
+      勉強
+    </button>
 
-    <label>タイトル</label>
+    <button onclick="filterThreads('音楽')">
+      音楽
+    </button>
 
-    <input
-      type="text"
-      id="title"
-      placeholder="タイトルを入力"
-      maxlength="100"
-    >
+    <button onclick="filterThreads('雑談')">
+      雑談
+    </button>
 
-    <label>カテゴリ</label>
-
-    <select id="category">
-      <option value="学校生活">🏫 学校生活</option>
-      <option value="お知らせ">📢 お知らせ</option>
-      <option value="勉強">📚 勉強</option>
-      <option value="音楽">🎸 音楽</option>
-      <option value="ゲーム">🎮 ゲーム</option>
-      <option value="雑談">💬 雑談</option>
-    </select>
-
-    <label>本文</label>
-
-    <textarea
-      id="content"
-      placeholder="投稿内容を入力"
-      maxlength="1000"
-    ></textarea>
-
-    <button id="submitPost">投稿する</button>
-
-  </section>
-
-
-  <!-- カテゴリ -->
-
-  <div class="categories">
-    <button>📢 お知らせ</button>
-    <button>🏫 学校生活</button>
-    <button>📚 勉強</button>
-    <button>🎸 音楽</button>
-    <button>🎮 ゲーム</button>
-    <button>💬 雑談</button>
   </div>
 
 
-  <!-- 投稿一覧 -->
+  <div class="content">
 
-  <section>
+    <!-- ========================= -->
+    <!-- スレッド一覧 -->
+    <!-- ========================= -->
 
-    <h2>最新の投稿</h2>
+    <section id="boardView">
 
-    <div id="posts">
-      <div class="empty">投稿を読み込んでいます...</div>
-    </div>
+      <div class="board-title">
+        学校生活＠掲示板
+      </div>
 
-  </section>
+      <div id="threadList" class="thread-list">
+        <div class="message">
+          スレッドを読み込んでいます...
+        </div>
+      </div>
 
-</main>
+      <button id="openCreateThread" class="main-button">
+        新規スレッド作成
+      </button>
+
+
+      <!-- スレッド作成フォーム -->
+
+      <div id="createForm" class="form-box">
+
+        <h2>新規スレッド作成</h2>
+
+        <label>
+          スレッドタイトル
+        </label>
+
+        <input
+          id="threadTitle"
+          type="text"
+          maxlength="100"
+          placeholder="例：文化祭の曲どうする？"
+        >
+
+        <label>
+          カテゴリ
+        </label>
+
+        <select id="threadCategory">
+
+          <option value="学校生活">
+            学校生活
+          </option>
+
+          <option value="部活">
+            部活
+          </option>
+
+          <option value="勉強">
+            勉強
+          </option>
+
+          <option value="音楽">
+            音楽
+          </option>
+
+          <option value="雑談">
+            雑談
+          </option>
+
+        </select>
+
+        <label>
+          本文
+        </label>
+
+        <textarea
+          id="threadContent"
+          maxlength="2000"
+          placeholder="スレッドの内容を書いてください"
+        ></textarea>
+
+        <button
+          id="createThread"
+          class="main-button"
+        >
+          スレッドを作成する
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- スレッド表示 -->
+    <!-- ========================= -->
+
+    <section id="threadView">
+
+      <button
+        id="backButton"
+        class="back-button"
+      >
+        ← スレッド一覧に戻る
+      </button>
+
+
+      <div
+        id="threadHeader"
+        class="thread-header"
+      >
+      </div>
+
+
+      <div id="replyList">
+      </div>
+
+
+      <!-- 返信 -->
+
+      <div class="reply-form">
+
+        <strong>書き込む</strong>
+
+        <br>
+        <br>
+
+        <textarea
+          id="replyContent"
+          maxlength="2000"
+          placeholder="本文を入力してください"
+        ></textarea>
+
+        <br>
+
+        <button
+          id="sendReply"
+          class="main-button"
+        >
+          書き込む
+        </button>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</div>
 
 
 <script type="module">
 
-  // Firebase
+  /* =========================================
+     Firebase
+     ========================================= */
+
   import { initializeApp }
     from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
@@ -225,218 +513,933 @@
     getFirestore,
     collection,
     addDoc,
+    doc,
+    writeBatch,
     query,
     orderBy,
     onSnapshot,
-    serverTimestamp
-  } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+    serverTimestamp,
+    updateDoc,
+    increment
+  }
+  from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
-
-  // Firebase設定
 
   const firebaseConfig = {
-    apiKey: "AIzaSyCCbUAvRjKdpjl8CZKrLgqjFmsYbaOGXPw",
-    authDomain: "school-board-44852.firebaseapp.com",
-    projectId: "school-board-44852",
-    storageBucket: "school-board-44852.firebasestorage.app",
-    messagingSenderId: "852363319361",
-    appId: "1:852363319361:web:09db7e1dc937dd89444ec0"
+
+    apiKey:
+      "AIzaSyCCbUAvRjKdpjl8CZKrLgqjFmsYbaOGXPw",
+
+    authDomain:
+      "school-board-44852.firebaseapp.com",
+
+    projectId:
+      "school-board-44852",
+
+    storageBucket:
+      "school-board-44852.firebasestorage.app",
+
+    messagingSenderId:
+      "852363319361",
+
+    appId:
+      "1:852363319361:web:09db7e1dc937dd89444ec"
+
   };
 
 
-  // Firebaseを起動
+  const app =
+    initializeApp(firebaseConfig);
 
-  const app = initializeApp(firebaseConfig);
-
-  const db = getFirestore(app);
-
-
-  // 投稿フォームを開く
-
-  const openPost = document.getElementById("openPost");
-  const postForm = document.getElementById("postForm");
-
-  openPost.addEventListener("click", () => {
-
-    postForm.style.display = "block";
-
-    postForm.scrollIntoView({
-      behavior: "smooth"
-    });
-
-  });
+  const db =
+    getFirestore(app);
 
 
-  // 投稿する
+  /* =========================================
+     状態
+     ========================================= */
 
-  const submitPost = document.getElementById("submitPost");
+  let currentCategory = "すべて";
 
-  submitPost.addEventListener("click", async () => {
+  let currentThreadId = null;
 
-    const title =
-      document.getElementById("title").value.trim();
+  let stopThreadListener = null;
 
-    const category =
-      document.getElementById("category").value;
-
-    const content =
-      document.getElementById("content").value.trim();
+  let allThreads = [];
 
 
-    // 空欄チェック
+  /* =========================================
+     スレッド一覧取得
+     ========================================= */
 
-    if (!title || !content) {
+  const threadsQuery = query(
 
-      alert("タイトルと本文を入力してください。");
+    collection(db, "threads"),
 
-      return;
-    }
-
-
-    try {
-
-      submitPost.disabled = true;
-
-      submitPost.textContent = "投稿中...";
-
-
-      // Firestoreに保存
-
-      await addDoc(collection(db, "posts"), {
-
-        title: title,
-
-        category: category,
-
-        content: content,
-
-        author: "匿名",
-
-        createdAt: serverTimestamp()
-
-      });
-
-
-      // 入力欄を空にする
-
-      document.getElementById("title").value = "";
-
-      document.getElementById("content").value = "";
-
-
-      alert("投稿しました！");
-
-
-    } catch (error) {
-
-      console.error(error);
-
-      alert("投稿に失敗しました。\n" + error.message);
-
-    }
-
-
-    submitPost.disabled = false;
-
-    submitPost.textContent = "投稿する";
-
-  });
-
-
-  // 投稿をリアルタイム取得
-
-  const postsQuery = query(
-
-    collection(db, "posts"),
-
-    orderBy("createdAt", "desc")
+    orderBy(
+      "lastActivityAt",
+      "desc"
+    )
 
   );
 
 
-  onSnapshot(postsQuery, (snapshot) => {
+  onSnapshot(
+    threadsQuery,
 
-    const posts = document.getElementById("posts");
+    (snapshot) => {
 
-    posts.innerHTML = "";
+      allThreads = [];
+
+      snapshot.forEach((docSnap) => {
+
+        allThreads.push({
+
+          id: docSnap.id,
+
+          ...docSnap.data()
+
+        });
+
+      });
+
+      renderThreads();
+
+    },
+
+    (error) => {
+
+      console.error(error);
+
+      document.getElementById(
+        "threadList"
+      ).innerHTML =
+
+        '<div class="message">' +
+        'スレッドを読み込めませんでした。' +
+        '</div>';
+
+    }
+
+  );
 
 
-    if (snapshot.empty) {
+  /* =========================================
+     スレッド表示
+     ========================================= */
 
-      posts.innerHTML =
-        '<div class="empty">まだ投稿がありません。</div>';
+  function renderThreads() {
+
+    const list =
+      document.getElementById(
+        "threadList"
+      );
+
+    list.innerHTML = "";
+
+
+    const filtered =
+
+      currentCategory === "すべて"
+
+        ? allThreads
+
+        : allThreads.filter(
+            thread =>
+              thread.category ===
+              currentCategory
+          );
+
+
+    if (filtered.length === 0) {
+
+      list.innerHTML =
+        '<div class="message">' +
+        'まだスレッドがありません。' +
+        '</div>';
 
       return;
 
     }
 
 
-    snapshot.forEach((doc) => {
+    filtered.forEach(
+      (thread, index) => {
 
-      const data = doc.data();
+        const row =
+          document.createElement(
+            "div"
+          );
 
-      const article = document.createElement("article");
+        row.className =
+          "thread-row";
 
-      article.className = "post";
+
+        const number =
+          document.createElement(
+            "div"
+          );
+
+        number.className =
+          "thread-number";
+
+        number.textContent =
+          `${index + 1}.`;
 
 
-      const category =
-        document.createElement("span");
+        const title =
+          document.createElement(
+            "div"
+          );
 
-      category.className = "category";
+        title.className =
+          "thread-title";
 
-      category.textContent = data.category;
+        title.textContent =
+          thread.title;
+
+
+        const category =
+          document.createElement(
+            "div"
+          );
+
+        category.className =
+          "thread-category";
+
+        category.textContent =
+          thread.category;
+
+
+        const meta =
+          document.createElement(
+            "div"
+          );
+
+        meta.className =
+          "thread-meta";
+
+        meta.textContent =
+          `${thread.replyCount || 0}レス`;
+
+
+        row.appendChild(number);
+
+        row.appendChild(title);
+
+        row.appendChild(category);
+
+        row.appendChild(meta);
+
+
+        row.addEventListener(
+          "click",
+          () => {
+
+            openThread(
+              thread.id
+            );
+
+          }
+        );
+
+
+        list.appendChild(row);
+
+      }
+
+    );
+
+  }
+
+
+  /* =========================================
+     カテゴリ
+     ========================================= */
+
+  window.filterThreads =
+    function(category) {
+
+      currentCategory =
+        category;
+
+      renderThreads();
+
+    };
+
+
+  /* =========================================
+     新規スレッドフォーム
+     ========================================= */
+
+  document
+    .getElementById(
+      "openCreateThread"
+    )
+    .addEventListener(
+      "click",
+      () => {
+
+        const form =
+          document.getElementById(
+            "createForm"
+          );
+
+        form.style.display =
+          form.style.display ===
+          "block"
+            ? "none"
+            : "block";
+
+      }
+    );
+
+
+  /* =========================================
+     スレッド作成
+     ========================================= */
+
+  document
+    .getElementById(
+      "createThread"
+    )
+    .addEventListener(
+      "click",
+      async () => {
+
+        const title =
+          document
+            .getElementById(
+              "threadTitle"
+            )
+            .value
+            .trim();
+
+
+        const category =
+          document
+            .getElementById(
+              "threadCategory"
+            )
+            .value;
+
+
+        const content =
+          document
+            .getElementById(
+              "threadContent"
+            )
+            .value
+            .trim();
+
+
+        if (!title || !content) {
+
+          alert(
+            "タイトルと本文を入力してください。"
+          );
+
+          return;
+
+        }
+
+
+        const button =
+          document
+            .getElementById(
+              "createThread"
+            );
+
+
+        button.disabled = true;
+
+        button.textContent =
+          "作成中...";
+
+
+        try {
+
+          const batch =
+            writeBatch(db);
+
+
+          /*
+            新しいスレッドのIDを
+            先に作る
+          */
+
+          const threadRef =
+            doc(
+              collection(
+                db,
+                "threads"
+              )
+            );
+
+
+          /*
+            1レス目
+          */
+
+          const replyRef =
+            doc(
+              collection(
+                db,
+                "threads",
+                threadRef.id,
+                "replies"
+              )
+            );
+
+
+          /*
+            スレッド
+          */
+
+          batch.set(
+            threadRef,
+            {
+
+              title: title,
+
+              category: category,
+
+              author: "名無しさん",
+
+              createdAt:
+                serverTimestamp(),
+
+              lastActivityAt:
+                serverTimestamp(),
+
+              replyCount: 1
+
+            }
+          );
+
+
+          /*
+            最初のレス
+          */
+
+          batch.set(
+            replyRef,
+            {
+
+              content: content,
+
+              author:
+                "名無しさん",
+
+              createdAt:
+                serverTimestamp()
+
+            }
+          );
+
+
+          await batch.commit();
+
+
+          document
+            .getElementById(
+              "threadTitle"
+            )
+            .value = "";
+
+
+          document
+            .getElementById(
+              "threadContent"
+            )
+            .value = "";
+
+
+          document
+            .getElementById(
+              "createForm"
+            )
+            .style.display =
+            "none";
+
+
+          alert(
+            "スレッドを作成しました。"
+          );
+
+
+        } catch (error) {
+
+          console.error(error);
+
+          alert(
+            "作成に失敗しました。\n" +
+            error.message
+          );
+
+        }
+
+
+        button.disabled = false;
+
+        button.textContent =
+          "スレッドを作成する";
+
+      }
+    );
+
+
+  /* =========================================
+     スレッドを開く
+     ========================================= */
+
+  function openThread(threadId) {
+
+    currentThreadId =
+      threadId;
+
+
+    document
+      .getElementById(
+        "boardView"
+      )
+      .style.display =
+      "none";
+
+
+    document
+      .getElementById(
+        "threadView"
+      )
+      .style.display =
+      "block";
+
+
+    const thread =
+      allThreads.find(
+        item =>
+          item.id ===
+          threadId
+      );
+
+
+    if (thread) {
+
+      document
+        .getElementById(
+          "threadHeader"
+        )
+        .innerHTML = "";
 
 
       const title =
-        document.createElement("h3");
+        document.createElement(
+          "h2"
+        );
 
-      title.textContent = data.title;
-
-
-      const content =
-        document.createElement("p");
-
-      content.textContent = data.content;
+      title.textContent =
+        thread.title;
 
 
       const info =
-        document.createElement("div");
-
-      info.className = "post-info";
+        document.createElement(
+          "p"
+        );
 
       info.textContent =
-        "匿名 ・ " + formatDate(data.createdAt);
+        `${thread.category} ｜ ${thread.replyCount || 0}レス`;
 
 
-      article.appendChild(category);
-      article.appendChild(title);
-      article.appendChild(content);
-      article.appendChild(info);
-
-      posts.appendChild(article);
-
-    });
-
-  });
+      document
+        .getElementById(
+          "threadHeader"
+        )
+        .appendChild(title);
 
 
-  // 日付表示
+      document
+        .getElementById(
+          "threadHeader"
+        )
+        .appendChild(info);
+
+    }
+
+
+    loadReplies(threadId);
+
+  }
+
+
+  /* =========================================
+     レス取得
+     ========================================= */
+
+  function loadReplies(threadId) {
+
+
+    if (stopThreadListener) {
+
+      stopThreadListener();
+
+    }
+
+
+    const repliesQuery = query(
+
+      collection(
+        db,
+        "threads",
+        threadId,
+        "replies"
+      ),
+
+      orderBy(
+        "createdAt",
+        "asc"
+      )
+
+    );
+
+
+    stopThreadListener =
+      onSnapshot(
+        repliesQuery,
+
+        (snapshot) => {
+
+          const list =
+            document.getElementById(
+              "replyList"
+            );
+
+          list.innerHTML = "";
+
+
+          let number = 1;
+
+
+          snapshot.forEach(
+            (replySnap) => {
+
+              const data =
+                replySnap.data();
+
+
+              const reply =
+                document.createElement(
+                  "div"
+                );
+
+              reply.className =
+                "reply";
+
+
+              const head =
+                document.createElement(
+                  "div"
+                );
+
+              head.className =
+                "reply-head";
+
+
+              const numberSpan =
+                document.createElement(
+                  "span"
+                );
+
+              numberSpan.className =
+                "reply-number";
+
+              numberSpan.textContent =
+                `${number} ：`;
+
+
+              const name =
+                document.createElement(
+                  "span"
+                );
+
+              name.className =
+                "reply-name";
+
+              name.textContent =
+                data.author ||
+                "名無しさん";
+
+
+              const date =
+                document.createElement(
+                  "span"
+                );
+
+              date.className =
+                "reply-date";
+
+              date.textContent =
+                " " +
+                formatDate(
+                  data.createdAt
+                );
+
+
+              head.appendChild(
+                numberSpan
+              );
+
+              head.appendChild(
+                name
+              );
+
+              head.appendChild(
+                date
+              );
+
+
+              const body =
+                document.createElement(
+                  "div"
+                );
+
+              body.className =
+                "reply-body";
+
+              body.textContent =
+                data.content;
+
+
+              reply.appendChild(
+                head
+              );
+
+              reply.appendChild(
+                body
+              );
+
+
+              list.appendChild(
+                reply
+              );
+
+
+              number++;
+
+            }
+          );
+
+        }
+
+      );
+
+  }
+
+
+  /* =========================================
+     返信
+     ========================================= */
+
+  document
+    .getElementById(
+      "sendReply"
+    )
+    .addEventListener(
+      "click",
+      async () => {
+
+        if (!currentThreadId) {
+
+          return;
+
+        }
+
+
+        const textarea =
+          document
+            .getElementById(
+              "replyContent"
+            );
+
+
+        const content =
+          textarea.value.trim();
+
+
+        if (!content) {
+
+          alert(
+            "本文を入力してください。"
+          );
+
+          return;
+
+        }
+
+
+        const button =
+          document
+            .getElementById(
+              "sendReply"
+            );
+
+
+        button.disabled = true;
+
+        button.textContent =
+          "書き込み中...";
+
+
+        try {
+
+          const threadRef =
+            doc(
+              db,
+              "threads",
+              currentThreadId
+            );
+
+
+          await addDoc(
+
+            collection(
+              db,
+              "threads",
+              currentThreadId,
+              "replies"
+            ),
+
+            {
+
+              content:
+                content,
+
+              author:
+                "名無しさん",
+
+              createdAt:
+                serverTimestamp()
+
+            }
+
+          );
+
+
+          await updateDoc(
+            threadRef,
+            {
+
+              lastActivityAt:
+                serverTimestamp(),
+
+              replyCount:
+                increment(1)
+
+            }
+          );
+
+
+          textarea.value = "";
+
+
+        } catch (error) {
+
+          console.error(error);
+
+          alert(
+            "書き込みに失敗しました。\n" +
+            error.message
+          );
+
+        }
+
+
+        button.disabled = false;
+
+        button.textContent =
+          "書き込む";
+
+      }
+    );
+
+
+  /* =========================================
+     戻る
+     ========================================= */
+
+  document
+    .getElementById(
+      "backButton"
+    )
+    .addEventListener(
+      "click",
+      () => {
+
+        if (stopThreadListener) {
+
+          stopThreadListener();
+
+          stopThreadListener =
+            null;
+
+        }
+
+
+        currentThreadId =
+          null;
+
+
+        document
+          .getElementById(
+            "threadView"
+          )
+          .style.display =
+          "none";
+
+
+        document
+          .getElementById(
+            "boardView"
+          )
+          .style.display =
+          "block";
+
+      }
+    );
+
+
+  /* =========================================
+     日付
+     ========================================= */
 
   function formatDate(timestamp) {
 
     if (!timestamp) {
+
       return "たった今";
+
     }
 
-    const date = timestamp.toDate();
 
-    return date.toLocaleString("ja-JP", {
-      month: "numeric",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit"
-    });
+    const date =
+      timestamp.toDate();
+
+
+    return date.toLocaleString(
+      "ja-JP",
+      {
+
+        year: "numeric",
+
+        month: "2-digit",
+
+        day: "2-digit",
+
+        hour: "2-digit",
+
+        minute: "2-digit"
+
+      }
+    );
 
   }
 
